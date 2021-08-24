@@ -1,6 +1,9 @@
 package com.luongtran.hometest.di
 
 import com.luongtran.hometest.MyApplication
+import com.luongtran.hometest.di.module.AppModule
+import com.luongtran.hometest.di.module.NetworkModule
+import com.luongtran.hometest.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -15,7 +18,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         AppModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        NetworkModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MyApplication> {

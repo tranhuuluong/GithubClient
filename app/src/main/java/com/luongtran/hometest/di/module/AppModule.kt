@@ -1,4 +1,4 @@
-package com.luongtran.hometest.di
+package com.luongtran.hometest.di.module
 
 import com.luongtran.hometest.MainActivity
 import com.luongtran.hometest.di.scope.ActivityScope

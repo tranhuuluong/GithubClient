@@ -1,6 +1,7 @@
-package com.luongtran.hometest.di
+package com.luongtran.hometest.di.module
 
 import androidx.lifecycle.ViewModelProvider
+import com.luongtran.hometest.di.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 

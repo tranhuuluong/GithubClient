@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.luongtran.hometest.BaseFragment
@@ -29,16 +31,45 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupUI()
+        observeData()
+    }
 
-        binding?.btOpenUserProfile?.setOnClickListener {
-            openUserProfile()
+    private fun setupUI() {
+        fun EditText.setSearchAction(action: (String?) -> Unit) {
+            setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    action.invoke(text?.toString())
+                    true
+                } else {
+                    false
+                }
+            }
         }
 
-        Log.d("debugTag", "$viewModel")
+        binding?.run {
+            etSearch.setSearchAction { keyword ->
+                performSearch(keyword)
+            }
+
+            ivClear.setOnClickListener {
+                etSearch.text = null
+            }
+        }
+    }
+
+    private fun observeData() {
+        viewModel.searchResult.observe(viewLifecycleOwner) {
+            Log.d("debugTag", "$it")
+        }
     }
 
     private fun openUserProfile() {
         val direction = SearchFragmentDirections.openUserProfile()
         findNavController().navigate(direction)
+    }
+
+    private fun performSearch(keyword: String?) {
+        viewModel.search(keyword)
     }
 }

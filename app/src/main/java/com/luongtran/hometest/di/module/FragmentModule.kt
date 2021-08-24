@@ -1,6 +1,7 @@
-package com.luongtran.hometest.di
+package com.luongtran.hometest.di.module
 
 import androidx.lifecycle.ViewModel
+import com.luongtran.hometest.di.ViewModelKey
 import com.luongtran.hometest.search.SearchViewModel
 import com.luongtran.hometest.userprofile.UserProfileViewModel
 import dagger.Binds
