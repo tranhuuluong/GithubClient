@@ -1,9 +1,11 @@
 package com.luongtran.hometest.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.luongtran.hometest.BaseFragment
 import com.luongtran.hometest.databinding.FragmentSearchBinding
@@ -12,6 +14,10 @@ import com.luongtran.hometest.databinding.FragmentSearchBinding
  * Created by LuongTran on 24/08/2021.
  */
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
+
+    private val viewModel: SearchViewModel by viewModels {
+        viewModelFactory
+    }
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -27,6 +33,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         binding?.btOpenUserProfile?.setOnClickListener {
             openUserProfile()
         }
+
+        Log.d("debugTag", "$viewModel")
     }
 
     private fun openUserProfile() {

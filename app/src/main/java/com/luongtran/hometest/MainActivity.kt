@@ -1,10 +1,10 @@
 package com.luongtran.hometest
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.luongtran.hometest.databinding.ActivityMainBinding
+import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
