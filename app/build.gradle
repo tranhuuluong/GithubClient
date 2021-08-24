@@ -50,6 +50,8 @@ dependencies {
     implementation deps.paging
 
     implementation deps.retrofit
+    implementation deps.gson_converter
+    implementation deps.okhttp
     implementation deps.dagger
     implementation deps.dagger_android_support
     kapt deps.dagger_android_processor
