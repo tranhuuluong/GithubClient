@@ -1,0 +1,36 @@
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.target_sdk = 30
+build_versions.compile_versions = build_versions.target_sdk
+
+ext.build_versions = build_versions
+
+def versions = [:]
+versions.gradle_plugin = '7.0.1'
+versions.kotlin_versions = '1.5.21'
+
+versions.core_ktx = '1.3.2'
+versions.app_compat = '1.2.0'
+versions.marterial_components = '1.3.0'
+versions.constraint_layout = '2.0.4'
+
+versions.junit = '4.13.2'
+versions.test_junit = '1.1.2'
+versions.expresso_core = '3.3.0'
+
+ext.versions = versions
+
+def deps = [:]
+deps.gradle_plugin = "com.android.tools.build:gradle:$versions.gradle_plugin"
+deps.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_versions"
+
+deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+deps.app_compat = "androidx.appcompat:appcompat:$versions.app_compat"
+deps.marterial_components = "com.google.android.material:material:$versions.marterial_components"
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+
+deps.junit = "junit:junit:$versions.junit"
+deps.test_junit = "androidx.test.ext:junit:$versions.test_junit"
+deps.expresso_core = "androidx.test.espresso:espresso-core:$versions.expresso_core"
+
+ext.deps = deps
