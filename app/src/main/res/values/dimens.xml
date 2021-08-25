@@ -4,8 +4,12 @@
     <dimen name="space_normal">8dp</dimen>
     <dimen name="space_large">16dp</dimen>
 
-    <dimen name="user_avatar_size_small">50dp</dimen>
-    <dimen name="user_avatar_size_medium">70dp</dimen>
+    <dimen name="user_avatar_size_small">30dp</dimen>
+    <dimen name="user_avatar_size_medium">50dp</dimen>
+    <dimen name="user_avatar_size_large">70dp</dimen>
+
+    <dimen name="user_repository_width">300dp</dimen>
+    <dimen name="user_repository_height">150dp</dimen>
 
     <dimen name="text_size_header">30sp</dimen>
 

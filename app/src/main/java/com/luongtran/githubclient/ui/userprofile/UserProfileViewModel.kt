@@ -5,6 +5,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.luongtran.githubclient.data.UserInfoRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,6 +19,7 @@ class UserProfileViewModel @Inject constructor(
     private val fetchUserReposFlow = MutableSharedFlow<String>(replay = 1)
 
     val userRepos = fetchUserReposFlow
+        .distinctUntilChanged()
         .flatMapLatest { userId -> userInfoRepository.getUserMostRecentRepositories(userId) }
         .asLiveData()
 
