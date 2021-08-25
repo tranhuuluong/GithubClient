@@ -1,6 +1,8 @@
 package com.luongtran.githubclient.data.mapper
 
+import com.luongtran.githubclient.data.model.GithubRepository
 import com.luongtran.githubclient.data.model.UserProfile
+import com.luongtran.githubclient.data.network.response.GithubRepositoryResponse
 import com.luongtran.githubclient.data.network.response.UserProfileResponse
 
 /**
@@ -19,3 +21,5 @@ fun UserProfileResponse.toUserProfile() = UserProfile(
     followers = followers,
     following = following
 )
+
+fun GithubRepositoryResponse.toGithubRepository() = GithubRepository(name, description, language, stars ?: 0)

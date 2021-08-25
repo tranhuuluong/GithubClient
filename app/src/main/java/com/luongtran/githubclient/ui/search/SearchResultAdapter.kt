@@ -2,7 +2,6 @@ package com.luongtran.githubclient.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.luongtran.githubclient.data.model.UserProfile

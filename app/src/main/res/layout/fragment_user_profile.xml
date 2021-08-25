@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f5f5f5">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,11 +14,11 @@
             android:id="@+id/bg_user_info"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#f5f5f5"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_user_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/barrier_user_info"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_header"
@@ -85,8 +86,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_normal"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
             app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
             app:layout_constraintTop_toBottomOf="@id/iv_avatar"
             tools:text="@tools:sample/lorem/random[1]" />
 
@@ -169,8 +170,8 @@
             android:id="@+id/label_recent_repositories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recent Repositories"
             android:layout_marginTop="@dimen/space_large"
+            android:text="Recent Activities"
             android:textAppearance="@style/AppTextAppearance.Bold"
             android:textSize="@dimen/text_size_large"
             app:layout_constraintStart_toStartOf="@id/guideline_start"
@@ -182,10 +183,42 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_normal"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_recent_repositories"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_recent_repositories" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_repositories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="label_recent_repositories,rv_repositories"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_user_info" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_large"
+            android:textAppearance="@style/AppTextAppearance.Bold"
+            android:textSize="@dimen/text_size_error"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_user_info"
+            tools:text="Error Message"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

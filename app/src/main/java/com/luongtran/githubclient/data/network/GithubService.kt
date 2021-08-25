@@ -1,9 +1,11 @@
 package com.luongtran.githubclient.data.network
 
+import com.luongtran.githubclient.data.network.response.GithubRepositoryResponse
 import com.luongtran.githubclient.data.network.response.SearchResponse
 import com.luongtran.githubclient.data.network.response.UserProfileResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import retrofit2.http.QueryMap
 
 /**
@@ -15,4 +17,7 @@ interface GithubService {
 
     @GET("users/{userId}")
     suspend fun getUserProfile(@Path("userId") userId: String): UserProfileResponse
+
+    @GET("users/{userId}/repos?sort=updated")
+    suspend fun getMostRecentUpdatedRepositories(@Path("userId") userId: String, @Query("per_page") pageSize: Int): List<GithubRepositoryResponse>
 }

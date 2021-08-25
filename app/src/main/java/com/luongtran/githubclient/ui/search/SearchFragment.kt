@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.luongtran.githubclient.R
 import com.luongtran.githubclient.data.model.Result
 import com.luongtran.githubclient.data.model.UserProfile
+import com.luongtran.githubclient.data.model.errorOrEmpty
+import com.luongtran.githubclient.data.model.successAndNotEmpty
 import com.luongtran.githubclient.databinding.FragmentSearchBinding
 import com.luongtran.githubclient.ui.BaseFragment
 import com.luongtran.githubclient.util.addItemDecoration
@@ -77,12 +79,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     private fun observeData() {
         viewModel.searchResult.observe(viewLifecycleOwner) { result ->
             binding?.run {
-                val successAndNotEmpty = result is Result.Success && result.data.isNotEmpty()
-                val successAndEmpty = result is Result.Success && result.data.isEmpty()
-
                 pbLoading.isVisible = result is Result.Loading
-                tvError.isVisible = result is Result.Error || successAndEmpty
-                rvSearchResult.isVisible = successAndNotEmpty
+                tvError.isVisible = result.errorOrEmpty()
+                rvSearchResult.isVisible = result.successAndNotEmpty()
 
                 if (result is Result.Success) {
                     handleResults(result)
