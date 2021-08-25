@@ -1,4 +1,4 @@
-package com.luongtran.hometest
+package com.luongtran.hometest.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

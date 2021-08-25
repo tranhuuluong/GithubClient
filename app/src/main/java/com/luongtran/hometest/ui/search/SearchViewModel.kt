@@ -1,4 +1,4 @@
-package com.luongtran.hometest.search
+package com.luongtran.hometest.ui.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -26,7 +26,7 @@ class SearchViewModel @Inject constructor(
         .debounce(300)
         .combine(pageFlow) { keyword, page -> keyword to page }
         .distinctUntilChanged()
-        .mapLatest { (keyword, currentPage) ->
+        .flatMapLatest { (keyword, currentPage) ->
             searchRepository.searchUsers(keyword, currentPage)
         }
         .asLiveData()

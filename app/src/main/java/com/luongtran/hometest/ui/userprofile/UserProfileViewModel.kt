@@ -1,4 +1,4 @@
-package com.luongtran.hometest.userprofile
+package com.luongtran.hometest.ui.userprofile
 
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject

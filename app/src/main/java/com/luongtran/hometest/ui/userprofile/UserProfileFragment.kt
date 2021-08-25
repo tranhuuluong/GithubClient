@@ -1,4 +1,4 @@
-package com.luongtran.hometest.userprofile
+package com.luongtran.hometest.ui.userprofile
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.luongtran.hometest.BaseFragment
 import com.luongtran.hometest.databinding.FragmentUserProfileBinding
+import com.luongtran.hometest.ui.BaseFragment
 
 /**
  * Created by LuongTran on 24/08/2021.

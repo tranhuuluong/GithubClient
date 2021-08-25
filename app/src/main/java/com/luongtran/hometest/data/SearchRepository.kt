@@ -1,12 +1,10 @@
 package com.luongtran.hometest.data
 
+import com.luongtran.hometest.data.mapper.toUserProfile
+import com.luongtran.hometest.data.model.Result
 import com.luongtran.hometest.data.network.GithubService
-import com.luongtran.hometest.data.network.response.SearchResponse
-import com.luongtran.hometest.data.network.response.UserProfileResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,26 +13,42 @@ import javax.inject.Singleton
  */
 @Singleton
 class SearchRepository @Inject constructor(
-    private val githubService: GithubService
+    private val githubService: GithubService,
+    private val ioDispatcher: CoroutineDispatcher
 ) {
 
     suspend fun searchUsers(
         keyword: String,
         page: Int,
         pageSize: Int = DEFAULT_PAGE_SIZE
-    ): List<UserProfileResponse> = coroutineScope {
+    ) = flow {
+        emit(Result.Loading)
+
         val queries = mapOf(
             "q" to keyword,
             "page" to "$page",
             "per_page" to "$pageSize"
         )
 
-        val results = githubService.searchUsers(queries).results
-        results?.map { response ->
-            async(Dispatchers.Default) {
-                githubService.getUserProfile(response.login)
+        coroutineScope {
+            try {
+                val results = githubService.searchUsers(queries)
+                    .results
+                    ?.map { response ->
+                        async(ioDispatcher + SupervisorJob()) {
+                            githubService.getUserProfile(response.login)
+                        }
+                    }?.awaitAll() ?: emptyList()
+
+                emit(
+                    Result.Success(
+                        results.map { it.toUserProfile() }
+                    )
+                )
+            } catch (e: Exception) {
+                emit(Result.Error(e))
             }
-        }?.awaitAll() ?: emptyList()
+        }
     }
 
     companion object {

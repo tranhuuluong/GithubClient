@@ -2,8 +2,8 @@ package com.luongtran.hometest.di.module
 
 import androidx.lifecycle.ViewModel
 import com.luongtran.hometest.di.ViewModelKey
-import com.luongtran.hometest.search.SearchViewModel
-import com.luongtran.hometest.userprofile.UserProfileViewModel
+import com.luongtran.hometest.ui.search.SearchViewModel
+import com.luongtran.hometest.ui.userprofile.UserProfileViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
