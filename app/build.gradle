@@ -61,6 +61,8 @@ dependencies {
     implementation deps.navigation_ui
     implementation deps.paging
 
+    implementation deps.glide
+    implementation deps.glide_compiler
     implementation deps.retrofit
     implementation deps.gson_converter
     implementation deps.okhttp
