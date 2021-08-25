@@ -22,7 +22,7 @@ fun UserProfileResponse.toUserProfile() = UserProfile(
     following = following
 )
 
-fun UserRepositoryInfoResponse.toGithubRepository() = UserRepositoryInfo(
+fun UserRepositoryInfoResponse.toUserRepositoryInfo() = UserRepositoryInfo(
     id = id,
     name = name,
     description = description,

@@ -1,13 +1,11 @@
 package com.luongtran.githubclient.data
 
-import com.luongtran.githubclient.data.mapper.toGithubRepository
 import com.luongtran.githubclient.data.model.Result
 import com.luongtran.githubclient.data.model.UserRepositoryInfo
-import com.luongtran.githubclient.data.network.GithubService
-import kotlinx.coroutines.CoroutineDispatcher
+import com.luongtran.githubclient.di.qualifier.Local
+import com.luongtran.githubclient.di.qualifier.Remote
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -16,8 +14,8 @@ import javax.inject.Singleton
  */
 @Singleton
 class UserInfoRepository @Inject constructor(
-    private val githubService: GithubService,
-    private val ioDispatcher: CoroutineDispatcher
+    @Remote private val remoteDataSource: UserInfoDataSource,
+    @Local private val localDataSource: UserInfoDataSource
 ) {
     suspend fun getUserMostRecentRepositories(
         userId: String,
@@ -26,11 +24,7 @@ class UserInfoRepository @Inject constructor(
         emit(Result.Loading)
 
         try {
-            val response = withContext(ioDispatcher) {
-                githubService
-                    .getMostRecentUpdatedRepositories(userId, pageSize)
-                    .map { it.toGithubRepository() }
-            }
+            val response = remoteDataSource.getUserMostRecentRepositories(userId, pageSize)
 
             emit(Result.Success(response))
         } catch (e: Exception) {

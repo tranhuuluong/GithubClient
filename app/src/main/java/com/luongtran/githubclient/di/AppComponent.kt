@@ -2,6 +2,7 @@ package com.luongtran.githubclient.di
 
 import com.luongtran.githubclient.MyApplication
 import com.luongtran.githubclient.di.module.AppModule
+import com.luongtran.githubclient.di.module.DataSourceModule
 import com.luongtran.githubclient.di.module.NetworkModule
 import com.luongtran.githubclient.di.module.ViewModelModule
 import dagger.BindsInstance
@@ -19,7 +20,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ViewModelModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        DataSourceModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MyApplication> {

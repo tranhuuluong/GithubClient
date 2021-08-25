@@ -1,9 +1,7 @@
 package com.luongtran.githubclient.data
 
-import com.luongtran.githubclient.data.mapper.toUserProfile
 import com.luongtran.githubclient.data.model.Result
-import com.luongtran.githubclient.data.network.GithubService
-import kotlinx.coroutines.*
+import com.luongtran.githubclient.di.qualifier.Remote
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,8 +11,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class SearchRepository @Inject constructor(
-    private val githubService: GithubService,
-    private val ioDispatcher: CoroutineDispatcher
+    @Remote private val searchRemoteDataSource: SearchDataSource
 ) {
 
     suspend fun searchUsers(
@@ -24,30 +21,12 @@ class SearchRepository @Inject constructor(
     ) = flow {
         emit(Result.Loading)
 
-        val queries = mapOf(
-            "q" to keyword,
-            "page" to "$page",
-            "per_page" to "$pageSize"
-        )
+        try {
+            val result = searchRemoteDataSource.searchUsers(keyword, page, pageSize)
 
-        coroutineScope {
-            try {
-                val results = githubService.searchUsers(queries)
-                    .results
-                    ?.map { response ->
-                        async(ioDispatcher + SupervisorJob()) {
-                            githubService.getUserProfile(response.login)
-                        }
-                    }?.awaitAll() ?: emptyList()
-
-                emit(
-                    Result.Success(
-                        results.map { it.toUserProfile() }
-                    )
-                )
-            } catch (e: Exception) {
-                emit(Result.Error(e))
-            }
+            emit(Result.Success(result))
+        } catch (e: Exception) {
+            emit(Result.Error(e))
         }
     }
 
