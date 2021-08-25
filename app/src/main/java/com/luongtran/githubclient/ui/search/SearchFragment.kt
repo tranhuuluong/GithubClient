@@ -28,7 +28,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private val searchAdapter: SearchResultAdapter by lazy {
-        SearchResultAdapter()
+        createSearchAdapter()
     }
 
     override fun createViewBinding(
@@ -95,6 +95,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         }
     }
 
+    private fun createSearchAdapter(): SearchResultAdapter {
+        return SearchResultAdapter { openUserProfile(it) }
+    }
+
     private fun handleResults(result: Result.Success<List<UserProfile>>) {
         val users = result.data
         if (users.isEmpty()) {
@@ -114,8 +118,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         binding?.tvError?.text = message
     }
 
-    private fun openUserProfile() {
-        val direction = SearchFragmentDirections.openUserProfile()
+    private fun openUserProfile(userProfile: UserProfile) {
+        val direction = SearchFragmentDirections.openUserProfile(userProfile)
         findNavController().navigate(direction)
     }
 

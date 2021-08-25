@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/AppTextAppearance</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="AppTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:fontFamily">@font/sofia_regular</item>
+    </style>
+
+    <style name="AppTextAppearance.Thin">
+        <item name="android:fontFamily">@font/sofia_light</item>
+    </style>
+
+    <style name="AppTextAppearance.SemiBold">
+        <item name="android:fontFamily">@font/sofia_semi_bold</item>
+    </style>
+
+    <style name="AppTextAppearance.Bold">
+        <item name="android:fontFamily">@font/sofia_bold</item>
+    </style>
+
+    <style name="UserInfoTextStyle">
+        <item name="android:textAppearance">@style/AppTextAppearance.SemiBold</item>
+        <item name="drawableTint">@color/light_grey</item>
+        <item name="android:drawablePadding">@dimen/space_normal</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

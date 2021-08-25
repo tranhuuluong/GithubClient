@@ -25,5 +25,11 @@
         android:id="@+id/user_profile_fragment"
         android:name="com.luongtran.githubclient.ui.userprofile.UserProfileFragment"
         android:label="User Profile Fragment"
-        tools:layout="@layout/fragment_user_profile" />
+        tools:layout="@layout/fragment_user_profile" >
+
+        <argument
+            android:name="user"
+            app:argType="com.luongtran.githubclient.data.model.UserProfile"/>
+
+    </fragment>
 </navigation>

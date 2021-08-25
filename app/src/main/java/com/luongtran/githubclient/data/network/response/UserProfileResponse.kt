@@ -20,6 +20,8 @@ data class UserProfileResponse(
     val email: String? = null,
     @SerializedName("bio")
     val bio: String? = null,
+    @SerializedName("blog")
+    val blog: String? = null,
     @SerializedName("public_repos")
     val repos: Int? = null,
     @SerializedName("followers")

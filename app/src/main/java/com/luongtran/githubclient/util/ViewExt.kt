@@ -1,8 +1,10 @@
 package com.luongtran.githubclient.util
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -42,4 +44,9 @@ fun RecyclerView.addItemDecoration(@DrawableRes drawable: Int, orientation: Int)
         divider.setDrawable(it)
         addItemDecoration(divider)
     }
+}
+
+fun TextView.setTextOrHide(string: String?) {
+    text = string
+    isGone = string.isNullOrBlank()
 }

@@ -14,27 +14,4 @@
         <!-- Customize your theme here. -->
         <item name="android:textViewStyle">@style/AppTextView</item>
     </style>
-
-
-    <style name="AppTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textAppearance">@style/AppTextAppearance</item>
-        <item name="android:includeFontPadding">false</item>
-    </style>
-
-    <style name="AppTextAppearance" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:fontFamily">@font/sofia_regular</item>
-    </style>
-
-    <style name="AppTextAppearance.Thin">
-        <item name="android:fontFamily">@font/sofia_light</item>
-    </style>
-
-    <style name="AppTextAppearance.SemiBold">
-        <item name="android:fontFamily">@font/sofia_semi_bold</item>
-    </style>
-
-    <style name="AppTextAppearance.Bold">
-        <item name="android:fontFamily">@font/sofia_bold</item>
-    </style>
 </resources>

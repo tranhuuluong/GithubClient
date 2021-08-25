@@ -14,6 +14,7 @@ fun UserProfileResponse.toUserProfile() = UserProfile(
     location = location,
     email = email,
     bio = bio,
+    blog = blog,
     repos = repos,
     followers = followers,
     following = following
