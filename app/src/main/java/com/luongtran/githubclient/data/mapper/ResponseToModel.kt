@@ -1,9 +1,9 @@
 package com.luongtran.githubclient.data.mapper
 
-import com.luongtran.githubclient.data.model.GithubRepository
 import com.luongtran.githubclient.data.model.UserProfile
-import com.luongtran.githubclient.data.network.response.GithubRepositoryResponse
+import com.luongtran.githubclient.data.model.UserRepositoryInfo
 import com.luongtran.githubclient.data.network.response.UserProfileResponse
+import com.luongtran.githubclient.data.network.response.UserRepositoryInfoResponse
 
 /**
  * Created by LuongTran on 25/08/2021.
@@ -22,4 +22,12 @@ fun UserProfileResponse.toUserProfile() = UserProfile(
     following = following
 )
 
-fun GithubRepositoryResponse.toGithubRepository() = GithubRepository(name, description, language, stars ?: 0)
+fun UserRepositoryInfoResponse.toGithubRepository() = UserRepositoryInfo(
+    id = id,
+    name = name,
+    description = description,
+    language = language,
+    stars = stars ?: 0,
+    ownerId = owner.login,
+    ownerAvatar = owner.avatar
+)

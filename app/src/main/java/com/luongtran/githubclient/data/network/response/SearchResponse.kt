@@ -7,10 +7,5 @@ import com.google.gson.annotations.SerializedName
  */
 data class SearchResponse(
     @SerializedName("items")
-    val results: List<UserSearchResponse>? = null
-) {
-    data class UserSearchResponse(
-        @SerializedName("login")
-        val login: String
-    )
-}
+    val results: List<UserBasicInformationResponse>? = null
+)

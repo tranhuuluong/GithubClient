@@ -5,7 +5,9 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by LuongTran on 25/08/2021.
  */
-data class GithubRepositoryResponse(
+data class UserRepositoryInfoResponse(
+    @SerializedName("id")
+    val id: String,
     @SerializedName("name")
     val name: String? = null,
     @SerializedName("description")
@@ -14,4 +16,6 @@ data class GithubRepositoryResponse(
     val language: String? = null,
     @SerializedName("stargazers_count")
     val stars: Int? = null,
+    @SerializedName("owner")
+    val owner: UserBasicInformationResponse,
 )

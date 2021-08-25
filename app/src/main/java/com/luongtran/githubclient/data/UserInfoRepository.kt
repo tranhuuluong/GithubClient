@@ -1,8 +1,8 @@
 package com.luongtran.githubclient.data
 
 import com.luongtran.githubclient.data.mapper.toGithubRepository
-import com.luongtran.githubclient.data.model.GithubRepository
 import com.luongtran.githubclient.data.model.Result
+import com.luongtran.githubclient.data.model.UserRepositoryInfo
 import com.luongtran.githubclient.data.network.GithubService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +22,7 @@ class UserInfoRepository @Inject constructor(
     suspend fun getUserMostRecentRepositories(
         userId: String,
         pageSize: Int = DEFAULT_PAGE_SIZE
-    ): Flow<Result<List<GithubRepository>>> = flow {
+    ): Flow<Result<List<UserRepositoryInfo>>> = flow {
         emit(Result.Loading)
 
         try {
