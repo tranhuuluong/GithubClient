@@ -9,7 +9,7 @@ android {
     compileSdk build_versions.compile_versions
 
     defaultConfig {
-        applicationId "com.luongtran.hometest"
+        applicationId "com.luongtran.githubclient"
         minSdk build_versions.min_sdk
         targetSdk build_versions.target_sdk
         versionCode 1
