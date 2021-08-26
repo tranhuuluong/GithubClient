@@ -2,6 +2,7 @@ package com.luongtran.githubclient.data
 
 import com.luongtran.githubclient.data.model.Result
 import com.luongtran.githubclient.data.model.UserRepositoryInfo
+import com.luongtran.githubclient.data.source.UserInfoDataSource
 import com.luongtran.githubclient.di.qualifier.Local
 import com.luongtran.githubclient.di.qualifier.Remote
 import kotlinx.coroutines.flow.Flow

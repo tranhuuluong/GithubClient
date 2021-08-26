@@ -1,8 +1,8 @@
-package com.luongtran.githubclient.data.network
+package com.luongtran.githubclient.data.source.network
 
-import com.luongtran.githubclient.data.network.response.SearchResponse
-import com.luongtran.githubclient.data.network.response.UserProfileResponse
-import com.luongtran.githubclient.data.network.response.UserRepositoryInfoResponse
+import com.luongtran.githubclient.data.source.network.response.SearchResponse
+import com.luongtran.githubclient.data.source.network.response.UserProfileResponse
+import com.luongtran.githubclient.data.source.network.response.UserRepositoryInfoResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

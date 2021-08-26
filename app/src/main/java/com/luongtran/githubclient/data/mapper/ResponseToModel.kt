@@ -2,8 +2,8 @@ package com.luongtran.githubclient.data.mapper
 
 import com.luongtran.githubclient.data.model.UserProfile
 import com.luongtran.githubclient.data.model.UserRepositoryInfo
-import com.luongtran.githubclient.data.network.response.UserProfileResponse
-import com.luongtran.githubclient.data.network.response.UserRepositoryInfoResponse
+import com.luongtran.githubclient.data.source.network.response.UserProfileResponse
+import com.luongtran.githubclient.data.source.network.response.UserRepositoryInfoResponse
 
 /**
  * Created by LuongTran on 25/08/2021.

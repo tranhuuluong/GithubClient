@@ -1,8 +1,8 @@
-package com.luongtran.githubclient.data.network
+package com.luongtran.githubclient.data.source.network
 
-import com.luongtran.githubclient.data.UserInfoDataSource
 import com.luongtran.githubclient.data.mapper.toUserRepositoryInfo
 import com.luongtran.githubclient.data.model.UserRepositoryInfo
+import com.luongtran.githubclient.data.source.UserInfoDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

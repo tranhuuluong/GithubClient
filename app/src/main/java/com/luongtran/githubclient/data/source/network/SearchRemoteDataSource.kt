@@ -1,8 +1,8 @@
-package com.luongtran.githubclient.data.network
+package com.luongtran.githubclient.data.source.network
 
-import com.luongtran.githubclient.data.SearchDataSource
 import com.luongtran.githubclient.data.mapper.toUserProfile
 import com.luongtran.githubclient.data.model.UserProfile
+import com.luongtran.githubclient.data.source.SearchDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll

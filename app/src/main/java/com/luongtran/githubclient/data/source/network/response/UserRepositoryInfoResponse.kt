@@ -1,4 +1,4 @@
-package com.luongtran.githubclient.data.network.response
+package com.luongtran.githubclient.data.source.network.response
 
 import com.google.gson.annotations.SerializedName
 

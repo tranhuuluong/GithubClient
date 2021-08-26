@@ -1,6 +1,7 @@
 package com.luongtran.githubclient.data
 
 import com.luongtran.githubclient.data.model.Result
+import com.luongtran.githubclient.data.source.SearchDataSource
 import com.luongtran.githubclient.di.qualifier.Remote
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

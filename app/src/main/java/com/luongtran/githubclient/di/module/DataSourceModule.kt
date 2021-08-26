@@ -1,10 +1,10 @@
 package com.luongtran.githubclient.di.module
 
-import com.luongtran.githubclient.data.SearchDataSource
-import com.luongtran.githubclient.data.UserInfoDataSource
-import com.luongtran.githubclient.data.local.UserInfoLocalDataSource
-import com.luongtran.githubclient.data.network.SearchRemoteDataSource
-import com.luongtran.githubclient.data.network.UserInfoRemoteDataSource
+import com.luongtran.githubclient.data.source.SearchDataSource
+import com.luongtran.githubclient.data.source.UserInfoDataSource
+import com.luongtran.githubclient.data.source.local.UserInfoLocalDataSource
+import com.luongtran.githubclient.data.source.network.SearchRemoteDataSource
+import com.luongtran.githubclient.data.source.network.UserInfoRemoteDataSource
 import com.luongtran.githubclient.di.qualifier.Local
 import com.luongtran.githubclient.di.qualifier.Remote
 import dagger.Binds

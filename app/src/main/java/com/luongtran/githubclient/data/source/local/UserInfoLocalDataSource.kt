@@ -1,7 +1,7 @@
-package com.luongtran.githubclient.data.local
+package com.luongtran.githubclient.data.source.local
 
-import com.luongtran.githubclient.data.UserInfoDataSource
 import com.luongtran.githubclient.data.model.UserRepositoryInfo
+import com.luongtran.githubclient.data.source.UserInfoDataSource
 import javax.inject.Inject
 import javax.inject.Singleton
 

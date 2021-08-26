@@ -2,7 +2,7 @@ package com.luongtran.githubclient.di.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.luongtran.githubclient.data.network.GithubService
+import com.luongtran.githubclient.data.source.network.GithubService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

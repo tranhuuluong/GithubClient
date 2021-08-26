@@ -1,4 +1,4 @@
-package com.luongtran.githubclient.data
+package com.luongtran.githubclient.data.source
 
 import com.luongtran.githubclient.data.model.UserRepositoryInfo
 
